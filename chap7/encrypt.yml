@@ -1,0 +1,13 @@
+---
+ - name : Simple encryption demo 
+   hosts: app
+   become: true
+   tasks:
+     - name : copy connection file to server
+       copy:
+           src: config/user.conf
+           dest: /var/www/html/user.conf
+           owner: apache
+           group: apache
+           mode: 0400
+... 

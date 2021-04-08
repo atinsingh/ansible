@@ -8,6 +8,8 @@ lb
 app1
 app2
 
+[test]
+app3
 
 [db]
 db

@@ -1,0 +1,22 @@
+---
+- name: Creating users 
+  hosts: app:!app3
+  become: true
+  vars:
+    users:
+     joseph:
+       home: true
+       state: absent
+       shell: /bin/bash
+     charan:
+       home: true
+       state: present
+       shell: /bin/sh
+  tasks:
+    - name: Create User
+      user:
+        name: "{{item.key}}"
+        state: "{{item.value.state}}"
+        shell: "{{item.value.shell}}"
+      with_dict: "{{users}}"
+...

@@ -1,0 +1,6 @@
+dbuser : staging-db
+name: UAT Application Testing
+servers :
+    - 10.10.10.01
+    - 10.10.10.02 
+    - 10.10.10.03 

@@ -1,0 +1,14 @@
+---
+- name: With a role
+  hosts: app1
+  become: yes
+  pre_tasks:
+    - name: 'May just execute update'
+      command: "echo Done with Pre_task" 
+  roles:
+    - role: apache
+  post_tasks: 
+    - name: 'Just a debug'
+      debug: >
+        msg="Everything is well done"
+...

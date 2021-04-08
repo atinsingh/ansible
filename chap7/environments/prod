@@ -1,18 +1,21 @@
 [local]
 localhost ansible_connection=local
 
-[lb]
+[loadbalancer]
 lb
 
 [app]
-app1
+app1  
 app2
+app3
 
-
-[db]
+[database]
 db
 
 [prod:children]
-lb
+database
 app
-db
+loadbalancer
+
+[staging:children]
+app

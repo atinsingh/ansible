@@ -1,0 +1,20 @@
+---
+- name : simple yaml playbook
+  hosts: prod,staging
+  become: true
+  tasks:
+    - name : install packages
+      package :
+        name : "{{item}}"
+        state: present
+      with_items:
+        - "{{required_pkgs.packages}}"
+      when: env=="prod"
+    - name : create multiple users in hosts
+      user: 
+        name: "{{item.key}}"
+        uid : "{{item.value.uid | default('none')}}"
+        shell : "{{item.value.shell | default('/bin/bash')}}"
+        home : "{{item.value.home | default('/home/app')}}"
+        state : "{{item.value.state | default('present')}}"
+      with_dict: "{{users}}"

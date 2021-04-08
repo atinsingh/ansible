@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     {% if app.env=='prod' %}
+    <style>
+        .container {
+            background-color:#000;
+            color: #fff;
+            min-height: 300px;
+            line-height : 300px;
+            padding: 20px;
+            font-size: 24px;
+        }
+     
+    </style>
+    {% endif %}
+
+    {% if app.env=='dev' %}
+    <style>
+        .container {
+            background-color: green
+            color: #fff;
+            font-size: 24px;
+        }
+     
+    </style>
+    {% endif %}
+     {% if app.env=='stage' %}
+    <style>
+        .container {
+            background-color: green
+            color: #fff;
+            font-size: 24px;
+        }
+     
+    </style>
+    {% endif %}
+</head>
+
+<body>
+    <div class="container">
+        <h3>Hello from New Version
+        {% if app.env=='prod' %}
+        {{app.prod.message}}
+         {%endif%}
+         {% if app.env=='dev' %}
+        {{app.dev.message}}
+         {%endif%}
+         {% if app.env=='stage'%}
+        {{app.stage.message}}
+         {%endif%}
+        </h3>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+---
+- name: deploy application
+  hosts: app
+  vars_files: 
+      - application.yml
+  roles:
+      - apache 
+      - app 
+...

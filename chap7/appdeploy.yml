@@ -1,0 +1,28 @@
+---
+  - name: create user 
+    hosts: app
+    vars:
+      appname: 'LEARNING DEVOPS v1.0'
+    become: true
+    tasks:
+      - name: create users on app machies
+        user:
+          name: "{{ item }}"
+          state: present 
+        with_items: 
+            - atin
+            - appuser
+            - vagrant 
+      - name: Install apache server
+        apt:
+          name: apache2
+          state: present 
+      - name: Restart the service 
+        service:
+          name: apache2
+          state: restarted
+      - name: copy files 
+        template:
+          src: ./app.html.j2
+          dest: /var/www/html/index.html
+...

@@ -1,0 +1,6 @@
+    username: Srikar
+    devops:
+        - git
+        - jenkins
+        - docker
+        - kubernetes

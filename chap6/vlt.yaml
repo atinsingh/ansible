@@ -1,0 +1,13 @@
+---
+- name : 'PLAY To sHOW Valult'
+  hosts: app
+  become: true
+  tasks: 
+    - name :  'Copy encrypted file'
+      copy:
+        src: vault/pass.yml
+        dest: /tmp/pass.yml
+        owner: root
+        group: root
+        mode: 0640
+... 

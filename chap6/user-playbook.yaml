@@ -1,0 +1,28 @@
+---
+- name: 'Create user on all servers'
+  hosts: all
+  become: true
+  vars: 
+    - create_group: 'yes'
+    - user: 'sai'
+  tasks:
+    - name: 'Create a group developer'
+      group:
+        name: developer
+        state: present
+        gid: 50011
+    - name: 'Add ussr' 
+      user:
+        name: "{{ item }}"
+        state: absent
+        createhome: yes
+        groups: "developer"
+      with_items:
+        - avneeth
+        - bhaumik
+        - sai
+        - summet
+        - arohi
+        - atin
+      when: item == "{{ user }}"  
+...

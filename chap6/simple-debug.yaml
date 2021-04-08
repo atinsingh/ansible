@@ -1,0 +1,25 @@
+---
+- name : 'Simple Dictionary Playbook'
+  hosts: all
+  gather_facts: yes
+  vars:
+    Accounts:
+      arohi: 8001
+      sai: 8002
+      sumeet: 8003
+      bhaumik: 8004
+      avneet: 8005
+  tasks:
+    - name: 'echo back the values'
+      debug:
+        msg: "User is {{ item.key }} and value is {{ item.value }} "
+      with_dict: "{{ Accounts }}"
+    - name: 'Setting a variable as fact' 
+      set_fact: 
+        random_var: RandomValue
+    - name: 'Print random var'
+      debug: 
+        #var: random_var 
+        msg: "This is the family of linux I am dealing with  {{ hostvars['ansible_os_family'] }} "
+
+...

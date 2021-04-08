@@ -1,0 +1,6 @@
+--- 
+  - name : loadbalancer ha proxy configuration
+    hosts: loadbalancer 
+    become: true
+    roles: 
+        - geerlingguy.haproxy

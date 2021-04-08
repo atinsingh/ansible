@@ -1,0 +1,6 @@
+dbuser : mysql-user
+name: Awesome DevOps App
+servers :
+    - apt
+    - db 
+    - lb 

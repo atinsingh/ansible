@@ -1,0 +1,19 @@
+---
+- name: create user apache 
+  user: 
+    name: apache
+    createhome: true
+
+- name: install apache
+  become_user: apache
+  yum: 
+    name : httpd
+    state: present
+
+- name: start apache server
+  become: true
+  service:
+      name: httpd
+      state: restarted
+
+...    

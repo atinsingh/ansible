@@ -1,0 +1,35 @@
+---
+- name: play 1
+  hosts: app
+  vars:
+    drink: wishey
+    username: BrainWasher
+    users:
+     -   name: srikar
+         homedir: /home/sri
+         shell: /bin/bash
+     -   name: niyati
+         homedir: /home/niyati
+         shell: /bin/bash
+  vars_files:
+    - vars.yml 
+  gather_facts: True
+  tasks:
+    - name: task1
+      debug:
+        msg: task1 running {{ item['name'] }} ,  {{ item.homedir }}
+      loop: "{{users}}"
+    
+    
+    - name: Using vars from file 
+      debug:
+        msg : "THis is output {{ ansible_hostname }}"
+      when: (ansible_hostname =="app3") or  username == "Srikar"
+      notify: 
+        - Restart server
+
+  handlers:
+    - name: Restart server
+      debug: 
+        msg: restarted app 
+...

@@ -1,0 +1,5 @@
+  instance_type: t2.micro
+  security_group: appserver_sg
+  image: ami-09d95fab7fff3776c
+  keypair: ansible
+  region: us-east-1

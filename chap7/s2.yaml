@@ -1,0 +1,30 @@
+---
+- name: Simple Play for running a debug task 
+  hosts: app
+  vars:
+    names:
+      - atin
+      - vivek
+
+  tasks:
+    - name: Just a ping pong game
+      become: true
+      debug:
+        msg: "Createing user {{item}}"
+      with_items: "{{names}}"
+     
+- name: Another Play for running a debug task 
+  hosts: app
+  vars:
+    names:
+      - atin
+      - vivek
+    type: redhat
+  become: true
+  tasks:
+    - name: Just a ping pong game
+      debug:
+        msg: Createing user {{names[0]}}
+     
+
+...

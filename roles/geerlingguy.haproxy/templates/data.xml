@@ -1,0 +1,12 @@
+<to type="primary">
+    <emails>
+        <email>vivek@gmail.com</email>
+        <email>atin@gmail.com</email>
+    </emails>
+</to>
+<cc>
+    <emails>
+        <email> ajay@gmail.com</email>
+        <email> atin@gmai.com</email>
+    </emails>
+</cc>

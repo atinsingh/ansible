@@ -1,0 +1,10 @@
+---
+- name: Demo Playbook for with List
+  hosts: app1
+  vars:
+    run : False
+  tasks:
+    - name: Demostrate the with list 
+      debug:
+        msg: "HERE IS THE VALUE COMING {{ansible_os_family}}"
+... 

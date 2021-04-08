@@ -1,0 +1,36 @@
+---
+mysql_databases:
+  - name: appdb
+    encoding: latin1
+    collation: latin1_general_ci
+mysql_users:
+  - name: appuser
+    host: "%"
+    password: appuser
+    priv: "appdb.*:ALL"
+required_pkgs:
+      packages:
+        - ntp
+        - git 
+        - vim
+        - tree
+        - httpd
+
+atin: learning ansible
+
+users:
+  admin:
+    uid: 5001
+    shell: /bin/bash
+    home: /home/admin
+    state: present
+  appuser:
+     uid: 5002
+     shell: /bin/bash
+     home: /home/appuser
+     state: present
+  tmpuser1:
+      uid : 301
+      state: present
+  env: prod
+

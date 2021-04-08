@@ -1,0 +1,25 @@
+---
+  - name: First Ansible Playbook for fun
+    hosts: app:db
+    become: true
+    tasks:
+      - name : Copy File 
+        copy:
+          src: file2.txt
+          mode: 644
+          dest: /tmp/workdir
+      - name: Create a deploy group
+        group:
+          name: deploy 
+          gid: 5020
+          state: present
+      - name: Create user deploy 
+        user:
+          name: deploy
+          uid: 1020
+          state: present
+          createhome: true
+          groups: deploy 
+...
+
+

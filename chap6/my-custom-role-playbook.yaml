@@ -1,0 +1,11 @@
+---
+- name: 'Testing Custom YML File'
+  hosts: app1
+  vars_files: 
+        - variables.yml
+  vars:
+      - logged_user : 'Atin' 
+  roles:
+     - pragra
+      
+...

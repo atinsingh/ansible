@@ -1,0 +1,5 @@
+- name : cofigure my server
+  become: true
+  hosts: app
+  roles:
+     - apache

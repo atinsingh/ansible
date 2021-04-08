@@ -1,0 +1,24 @@
+- name : Configure Apache Server for our needs
+  hosts: db
+  become: True
+  vars:
+    apache_port: 8080
+  tasks:
+    - name: just a funny tasks
+      debug:
+        msg: "Nothing"
+    - name: installing apache2 on db server
+      apt:
+        name: apache2
+        state: present
+    - name: copy conf file 
+      template:
+          src: ports.conf.j2
+          dest: /etc/apache2/ports.conf
+      notify:
+          - Rstart server
+  handlers:
+      - name: Rstart server
+        service:
+            name: apache2
+            state: restarted

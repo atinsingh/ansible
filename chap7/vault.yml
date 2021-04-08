@@ -1,0 +1,9 @@
+- name: check valut thing
+  hosts: app
+  vars_files:
+    - credentials.yml
+  tasks:
+    - name: print username and password
+      debug:
+        msg: "User name : {{username}} Pasword: {{password}}"
+           

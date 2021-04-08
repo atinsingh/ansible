@@ -1,0 +1,6 @@
+---
+- name: Copy our config file in app serer in /home/app1
+  template:
+    src: app.config.j2
+    dest: /tmp/app.config
+...

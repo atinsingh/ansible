@@ -1,0 +1,6 @@
+---
+ - include_tasks: copy.yml 
+ - name: Just a debug task 
+   debug: 
+    msg: "Hello {{ logged_user }}"
+...

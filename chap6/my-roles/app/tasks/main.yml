@@ -1,0 +1,8 @@
+---
+# tasks file for app
+- name: copy file to app servers 
+  become: true
+  template: 
+       src: index.html.j2
+       dest: /var/www/html/index.html
+        

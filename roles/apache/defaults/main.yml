@@ -1,0 +1,15 @@
+---
+# defaults file for apache
+http-listen-port: 8080
+app_version: v2
+app:
+  env: dev 
+  prod:
+    port: 80
+    message: Prod
+  dev:
+    port: 8080
+    message: Develoment with auto discovery
+  stage:
+    message: Stage
+    port: 81
