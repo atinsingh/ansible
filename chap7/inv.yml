@@ -2,15 +2,16 @@
 app:
  hosts:
    app1: 
-     ansible_host: 192.168.56.102
+     ansible_host=192.168.56.102
    app2: 
-     ansible_host: 192.168.56.202
+     ansible_host=192.168.56.202
 db:
  hosts:
     db:
-      ansible_host: 192.168.56.105
+      ansible_host=192.168.56.105
 
 staging:
   children:
     app:
     db:
+...

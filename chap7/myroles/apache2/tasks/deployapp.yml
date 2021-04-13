@@ -1,0 +1,6 @@
+---
+- name: Deploy app
+  copy:
+    src: index.html
+    dest: "{{doc_root}}/index.html"
+  

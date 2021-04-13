@@ -5,12 +5,12 @@ localhost ansible_connection=local
 lb
 
 [app]
-app1  
-app2
-app3
+app1  ab=yes
+app2  ab=no
+app3  ab=no
 
 [database]
-db
+db ansible_host=192.168.56.105 ab=yes
 
 [prod:children]
 database

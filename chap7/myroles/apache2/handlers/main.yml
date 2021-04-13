@@ -1,0 +1,13 @@
+---
+# handlers file for apache2
+- name: Restart HttpServer Debian
+  service:
+    name:  apache2 
+    state: restarted
+  when: ansible_os_family =='Debian'
+
+- name: Restart HttpServer Fedora
+  service:
+    name:  httpd 
+    state: restarted
+  when: ansible_os_family == 'Redhat'

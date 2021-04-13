@@ -1,0 +1,12 @@
+---
+- name: Configure and deploy Apache Servers
+  hosts: app:!app3
+  become: true
+  vars:
+   devPort: 8083
+   mysql_user_home: /root
+   mysql_user_name: pragra
+   mysql_user_password: pragra
+  roles:
+    - apache2
+- import_playbook: db.yml

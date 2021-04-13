@@ -1,0 +1,22 @@
+---
+- name : Running some debug for with items
+  hosts: app:db:!app3
+  become: true 
+  vars: 
+   user_name: 
+      - Jospeh
+      - Sai 
+      - Rahul
+  tasks:
+    - name: Sample Task 
+      debug:
+        msg: "Running For user {{ item }}" 
+      with_items: "{{ user_name}}" 
+    - name: Running Host Task
+      debug: 
+        msg: "This is host variable {{ hostvars['app1']['ab'] }}"
+    - name: Remove HTTPD
+      apt:
+       name: apache2
+       state: absent
+...

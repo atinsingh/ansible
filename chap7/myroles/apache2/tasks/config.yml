@@ -1,0 +1,8 @@
+---
+- name: Simple Port Configuration
+  template:
+    src: port.conf.j2
+    dest: "{{configlocation}}"
+  notify: 'Restart HttpServer Debian'
+...
+  
