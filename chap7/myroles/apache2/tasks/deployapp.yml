@@ -1,6 +1,6 @@
 ---
 - name: Deploy app
-  copy:
-    src: index.html
+  template:
+    src: index.html.j2
     dest: "{{doc_root}}/index.html"
   

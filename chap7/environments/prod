@@ -2,7 +2,7 @@
 localhost ansible_connection=local
 
 [loadbalancer]
-lb
+lb ansible_host=192.168.56.104
 
 [app]
 app1  ab=yes

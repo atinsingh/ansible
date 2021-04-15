@@ -1,0 +1,16 @@
+---
+- name: Demostrate magic variable 
+  hosts: app:!app3
+  vars_files:
+    - userdata.yml
+  tasks:
+   - name: Just a demo
+     debug:
+      var: ansible_facts['hostname']
+   - name: Just a demo
+     debug:
+      var: username
+   - name: Just a demo
+     debug:
+      var: password
+    

@@ -3,10 +3,7 @@
   hosts: app:!app3
   become: true
   vars:
-   devPort: 8083
-   mysql_user_home: /root
-   mysql_user_name: pragra
-   mysql_user_password: pragra
+   devPort: 8081
   roles:
     - apache2
-- import_playbook: db.yml
+- import_playbook: lb.yml

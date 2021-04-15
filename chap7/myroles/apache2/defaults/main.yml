@@ -1,6 +1,6 @@
 ---
 # defaults file for apache2
 configlocation: /etc/apache2/ports.conf
-httpPort: 8081
+httpPort: 8080
 doc_root: /var/www/html
-devPort: 8086
+devPort: 8081
